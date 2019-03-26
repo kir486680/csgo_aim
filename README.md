@@ -7,13 +7,7 @@ This is a CSGO aim assist that is not detectable.
 
 This program grabs your screen and moves mouse according to the deep learning model prediction.
 
-```mermaid
-graph LR
-A[Capture your screen] --> B((Model prediction))
 
-B --> D[Mouse movement]
-
-```
 ## Why is it undetectable?
 
 NO FILES ARE BEING CHANGED. This aim assist doesn't change any CSGO files 
