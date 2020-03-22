@@ -22,6 +22,8 @@ NO FILES ARE BEING CHANGED. This aim assist doesn't change any CSGO files
 
 [Here](https://drive.google.com/file/d/1E8eF0vdyxllHjMrY0ljY5OgJJ-uICdRv/view?usp=sharing) is the link to download the latest pb file. Newer file will likely improve the performance of the model.
 
-
+##Where did I train the model ?
+I used Google Colab in order to train the model 
+https://colab.research.google.com/drive/1ELhjCGQj4cf1s4aIXBptWStNTlLLDmfq
 
 
