@@ -1,6 +1,6 @@
-﻿# First CSGO deep learning aim assist!
+# First CSGO deep learning aim assist! 2020 Update!
 
-This is a CSGO aim assist that is not detectable. 
+This is a CSGO aim assist that is not detectable. With the new 2020 update anyone can enjoy better aim. New release is coming in a few days with new faster and more accurate models to detect more enemies!
 
 
 # How does it work?
