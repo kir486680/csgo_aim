@@ -21,12 +21,12 @@ inpHeight = 416      #Height of network's input image
 
 pyautogui.FAILSAFE = False
 
-width = 1280
-height = 800
+width = 1920
+height = 1080
 
 monitor = {"top": 80, "left": 0, "width": width, "height": height}
 #0 ,1 for Terrorist, Terrorist Head and 2,3 for Counter Terrorist and CT head
-friendlyTeam = [0,1]
+friendlyTeam = [2,3]
 
 sct = mss.mss()
 # Load names of classes
@@ -93,8 +93,6 @@ def postprocess(frame, outs):
             if confidence > confThreshold:
                 center_x = int(detection[0] * frameWidth)
                 center_y = int(detection[1] * frameHeight)
-                if classId not in friendlyTeam:
-                    Shoot(center_x, center_y)
                 width = int(detection[2] * frameWidth)
                 height = int(detection[3] * frameHeight)
                 left = int(center_x - width / 2)
@@ -114,6 +112,8 @@ def postprocess(frame, outs):
         width = box[2]
         height = box[3]
         #Comment this out if you want to see boxes 
+        if classIds[i] not in friendlyTeam:
+            Shoot(center_x, center_y)
         drawPred(classIds[i], confidences[i], left, top, left + width, top + height)
 # Process inputs
 winName = 'CSGO ObjectDetection'
