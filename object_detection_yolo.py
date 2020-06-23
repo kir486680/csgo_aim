@@ -41,7 +41,7 @@ modelWeights = "yolov3-tiny_last.weights"
 
 net = cv.dnn.readNetFromDarknet(modelConfiguration, modelWeights)
 net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
-net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
+#net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
 
 # Get the names of the output layers
 def getOutputsNames(net):
