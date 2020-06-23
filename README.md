@@ -2,8 +2,7 @@
 
   - Extremely fast detection on GPU as well as good inference time on cpu 
   - Even more accurate models.
-  Currently supported maps:
-   -Dust
+  Currently supported maps: Dust
 ### How to use
 
 Download weights from the following [link](https://drive.google.com/drive/folders/10QvwT857wyShDlkZ9JWOJ1FGrL963OCU?usp=sharing)
