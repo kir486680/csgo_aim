@@ -114,10 +114,10 @@ def postprocess(frame, outs):
         width = box[2]
         height = box[3]
         #Comment this out if you want to see boxes 
-        #drawPred(classIds[i], confidences[i], left, top, left + width, top + height)
+        drawPred(classIds[i], confidences[i], left, top, left + width, top + height)
 # Process inputs
-#winName = 'CSGO ObjectDetection'
-#cv.namedWindow(winName, cv.WINDOW_NORMAL)
+winName = 'CSGO ObjectDetection'
+cv.namedWindow(winName, cv.WINDOW_NORMAL)
 
 
 while True:
@@ -143,8 +143,11 @@ while True:
     # Put efficiency information. The function getPerfProfile returns the overall time for inference(t) and the timings for each of the layers(in layersTimes)
     t, _ = net.getPerfProfile()
     label = 'Inference time: %.2f ms' % (t * 1000.0 / cv.getTickFrequency())
-    #cv.putText(frame, label, (0, 15), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255))
+    cv.putText(frame, label, (0, 15), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255))
 
 
-
+    cv.imshow(winName, frame)
+    if cv.waitKey(25) & 0xFF == ord("q"):
+        cv.destroyAllWindows()
+        break
 
