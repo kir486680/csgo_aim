@@ -1,5 +1,0 @@
-*.pb
-build/
-object_detection/
-dist/
-CSGO_training/
