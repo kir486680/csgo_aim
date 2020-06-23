@@ -9,4 +9,4 @@ Download weights from the following [link](https://drive.google.com/drive/folder
 If you have a faster computer use yolov3 weight but if your machine is not fast or you want to use cpu use yolov3-tiny.weights
 ### Want To Help?
 
-I would highly appreciaty anybodys help with my project!
+I would highly appreciate anybodys help with my project!
