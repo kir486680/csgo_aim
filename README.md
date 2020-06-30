@@ -7,6 +7,7 @@
 
 Download yolov3-tiny.weights and yolov3-tiny.cfg from the following [link](https://drive.google.com/drive/folders/10QvwT857wyShDlkZ9JWOJ1FGrL963OCU?usp=sharing)
 
+edit friendlyTeam.txt file to add the classes that you want to detect (0 ,1 for Terrorist, Terrorist Head and 2,3 for Counter Terrorist and CT head)
 Make csgo resolution same as in .py file
 ### Want To Help?
 
