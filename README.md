@@ -1,4 +1,4 @@
-# Fastest CSGO AI cheat! New Features!
+# Fastest CSGO Deep Learning cheat! New Features!
 
   - Extremely fast detection on GPU as well as good inference time on cpu 
   - Even more accurate models.
