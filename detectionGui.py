@@ -11,7 +11,7 @@ import os.path
 import mss
 import pyautogui
 import time
-
+import keyboard
 
 # Initialize the parameters
 confThreshold = 0.4  #Confidence threshold
@@ -25,8 +25,8 @@ width = 1920
 height = 1080
 
 monitor = {"top": 80, "left": 0, "width": width, "height": height}
-#0 ,1 for Terrorist, Terrorist Head and 2,3 for Counter Terrorist and CT head
-friendlyTeam = [2,3]
+
+
 
 sct = mss.mss()
 # Load names of classes
@@ -41,8 +41,14 @@ modelWeights = "yolov3-tiny_last.weights"
 
 net = cv.dnn.readNetFromDarknet(modelConfiguration, modelWeights)
 net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
-#net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
 
+friendlyTeam = []
+#0 ,1 for Terrorist, Terrorist Head and 2,3 for Counter Terrorist and CT head
+f = open("friendlyTeam.txt", "r")
+for i in f.read(5):
+    friendlyTeam.append(int(i))
+
+print(friendlyTeam)
 # Get the names of the output layers
 def getOutputsNames(net):
     # Get the names of all the layers in the network
@@ -69,11 +75,7 @@ def drawPred(classId, conf, left, top, right, bottom):
     cv.rectangle(frame, (left, top - round(1.5*labelSize[1])), (left + round(1.5*labelSize[0]), top + baseLine), (255, 255, 255), cv.FILLED)
     cv.putText(frame, label, (left, top), cv.FONT_HERSHEY_SIMPLEX, 0.75, (0,0,0), 1)
 def Shoot(mid_x, mid_y):
-  print(mid_x, mid_y)
-  x = int(mid_x*width)
-  #y = int(mid_y*height)
-  y = int(mid_y*height+height/9)
-  pyautogui.moveTo(mid_x,mid_y+70)
+  pyautogui.moveTo(mid_x,mid_y+50)
   #pyautogui.click()
 # Remove the bounding boxes with low confidence using non-maxima suppression
 def postprocess(frame, outs):
@@ -139,7 +141,6 @@ while True:
 
     # Remove the bounding boxes with low confidence
     postprocess(frame, outs)
-
     # Put efficiency information. The function getPerfProfile returns the overall time for inference(t) and the timings for each of the layers(in layersTimes)
     t, _ = net.getPerfProfile()
     label = 'Inference time: %.2f ms' % (t * 1000.0 / cv.getTickFrequency())
@@ -147,7 +148,8 @@ while True:
 
 
     cv.imshow(winName, frame)
-    if cv.waitKey(25) & 0xFF == ord("q"):
+    
+    if keyboard.is_pressed('q'):
         cv.destroyAllWindows()
         break
 
