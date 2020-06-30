@@ -149,7 +149,6 @@ while True:
 
     cv.imshow(winName, frame)
     
-    if keyboard.is_pressed('q'):
+    if cv.waitKey(25) & 0xFF == ord("q"):
         cv.destroyAllWindows()
         break
-
