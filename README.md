@@ -11,6 +11,10 @@ edit friendlyTeam.txt file to add the classes that you want to detect (0 ,1 for 
 Make csgo resolution same as in .py file
 ### New Release is out !!!!
 If you dont want to compile the file or you dont have python you can just go to the [release](https://github.com/kir486680/csgo_aim/releases) page and run .exe file in the archive 
+### Features Planned For Next Release
+  - Using a json file instead of txt(Not started)
+  - Add a yolov3-tiny-prn model(In progress)
+  - Use Multithreading to read the screen(Not Started)
 ### Want To Help?
 
 I would highly appreciate anybodys help with my project! If you are interested in working in a team you can contact me!(kir486680@protonmail.com)
