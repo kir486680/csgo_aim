@@ -1,8 +1,3 @@
-# This code is written at BigVision LLC. It is based on the OpenCV project. It is subject to the license terms in the LICENSE file found in this distribution and at http://opencv.org/license.html
-
-# Usage example:  python3 object_detection_yolo.py --video=run.mp4
-#                 python3 object_detection_yolo.py --image=bird.jpg
-
 import cv2 as cv
 import argparse
 import sys
@@ -12,43 +7,18 @@ import mss
 import pyautogui
 import time
 import keyboard
-
-# Initialize the parameters
-confThreshold = 0.4  #Confidence threshold
-nmsThreshold = 0.6   #Non-maximum suppression threshold
-inpWidth = 416     #Width of network's input image
-inpHeight = 416      #Height of network's input image
-
+import constants as consts
 pyautogui.FAILSAFE = False
-
-width = 1920
-height = 1080
-
-monitor = {"top": 80, "left": 0, "width": width, "height": height}
-
-
-
+monitor = {"top": 80, "left": 0, "width": consts.width, "height": consts.height}
 sct = mss.mss()
 # Load names of classes
-classesFile = "obj.names"
 classes = None
-with open(classesFile, 'rt') as f:
+with open(consts.classesFile, 'rt') as f:
     classes = f.read().rstrip('\n').split('\n')
-
 # Give the configuration and weight files for the model and load the network using them.
-modelConfiguration = "yolov3-tiny.cfg"
-modelWeights = "yolov3-tiny_last.weights"
-
-net = cv.dnn.readNetFromDarknet(modelConfiguration, modelWeights)
+net = cv.dnn.readNetFromDarknet(consts.modelConfiguration, consts.modelWeights)
 net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
 
-friendlyTeam = []
-#0 ,1 for Terrorist, Terrorist Head and 2,3 for Counter Terrorist and CT head
-f = open("friendlyTeam.txt", "r")
-for i in f.read(5):
-    friendlyTeam.append(int(i))
-
-print(friendlyTeam)
 # Get the names of the output layers
 def getOutputsNames(net):
     # Get the names of all the layers in the network
@@ -92,7 +62,7 @@ def postprocess(frame, outs):
             scores = detection[5:]
             classId = np.argmax(scores)
             confidence = scores[classId]
-            if confidence > confThreshold:
+            if confidence > consts.confThreshold:
                 center_x = int(detection[0] * frameWidth)
                 center_y = int(detection[1] * frameHeight)
                 width = int(detection[2] * frameWidth)
@@ -105,7 +75,7 @@ def postprocess(frame, outs):
 
     # Perform non maximum suppression to eliminate redundant overlapping boxes with
     # lower confidences.
-    indices = cv.dnn.NMSBoxes(boxes, confidences, confThreshold, nmsThreshold)
+    indices = cv.dnn.NMSBoxes(boxes, confidences, consts.confThreshold, consts.nmsThreshold)
     for i in indices:
         i = i[0]
         box = boxes[i]
@@ -114,7 +84,7 @@ def postprocess(frame, outs):
         width = box[2]
         height = box[3]
         #Comment this out if you want to see boxes 
-        if classIds[i] not in friendlyTeam:
+        if classIds[i] not in consts.friendlyTeam:
             Shoot(center_x, center_y)
         drawPred(classIds[i], confidences[i], left, top, left + width, top + height)
 # Process inputs
@@ -132,7 +102,7 @@ while True:
 
     frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
     # Create a 4D blob from a frame.
-    blob = cv.dnn.blobFromImage(frame, 1/255, (inpWidth, inpHeight), [0,0,0], 1, crop=False)
+    blob = cv.dnn.blobFromImage(frame, 1/255, (consts.inpWidth, consts.inpHeight), [0,0,0], 1, crop=False)
 
     net.setInput(blob)
 
