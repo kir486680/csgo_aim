@@ -16,10 +16,12 @@ Change capture params in .ini file according to your screen
 ### New Release is out !!!!
 If you dont want to compile the file or you dont have python you can just go to the [release](https://github.com/kir486680/csgo_aim/releases) page and run .exe file in the archive 
 ### Features Planned For Next Release
+  - Use YOLOv5 model for more convinient and faster GPU inference(In progress)
   - Using a config file instead of txt(done)
   - Add a yolov3-tiny-prn model(done)
   - Use Multithreading to read the screen(In progress)
   - Make a convinient recording utility to get more data(In progress)
+
 ### Want To Help?
 
 I would highly appreciate anybodys help with my project! If you are interested in working in a team you can contact me!(kir486680@protonmail.com)
