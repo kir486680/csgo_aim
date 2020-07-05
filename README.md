@@ -5,7 +5,9 @@
   - Currently supported maps: Dust(but you can also try other maps)
 ### How to use
 If you want to use a gpu, you should stick to the pytorch version(model is not accurate right now) and change "device" field in .ini file to gpu. If you want to use cpu, please compare which one is faster(darknet or pytorch) version on your own machine.
-Choose either detectionTkInterGui.py(still in beta) or detectionOpenCvGui.py(you will be able to see a screen with boxex around predicted models )
+
+For Darknet Choose either detectionTkInterGui.py(still in beta) or detectionOpenCvGui.py(you will be able to see a screen with boxex around predicted models )
+For better gpu inference you should use pytorch
 
 Download yolov3-tiny.weights and yolov3-tiny.cfg(you can also use yolov3-tiny-prn_last.weights and yolov3-tiny-prn.cfg for greater speed but lower accuracy) or yolo5s-1.pt for pytorch detection from the following [link](https://drive.google.com/drive/folders/10QvwT857wyShDlkZ9JWOJ1FGrL963OCU?usp=sharing)
 
