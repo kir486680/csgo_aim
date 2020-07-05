@@ -1,7 +1,7 @@
 # Fastest CSGO Deep Learning cheat! New Features!
 	
   - Extremely fast detection on GPU as well as good inference time on cpu 
-  - Even more accurate models.
+  - Supports both YoloV3 Darknet(CPU) as well as YoloV5 Pytorch(GPU)(Still in devlopment not recommended to use)
   - Currently supported maps: Dust(but you can also try other maps)
 ### How to use
 If you want to use a gpu, you should stick to the pytorch version(model is not accurate right now) and change "device" field in .ini file to gpu. If you want to use cpu, please compare which one is faster(darknet or pytorch) version on your own machine.
