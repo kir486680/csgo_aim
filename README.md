@@ -1,4 +1,4 @@
-# Fastest CSGO Deep Learning cheat! New Features!
+# Fastest CSGO Deep Learning Aim Assist! New Features!
 	
   - Extremely fast detection on GPU as well as good inference time on cpu 
   - Supports both YoloV3 Darknet(CPU) as well as YoloV5 Pytorch(GPU)(Still in devlopment not recommended to use)
